@@ -1,0 +1,675 @@
+/* =============================================
+   CSS CUSTOM PROPERTIES (Variables)
+   WHY: Changing the whole color theme means
+   editing just these lines, not 200. This is
+   the foundation of maintainable CSS.
+   Every future page imports this file and
+   automatically gets the same design tokens.
+============================================= */
+:root {
+  --bg:        #0a0a0a;
+  --surface:   #111111;
+  --border:    #1e1e1e;
+  --text:      #e8e8e8;
+  --muted:     #777;
+  --accent:    #00ff87;
+  --accent-dim:#00cc6a;
+  --font-head: 'DM Serif Display', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+/* =============================================
+   RESET & BASE
+   WHY: Browsers have different default styles.
+   box-sizing: border-box makes sizing intuitive
+   (padding doesn't add to element width).
+============================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* =============================================
+   LAYOUT UTILITY
+   WHY: A single .container class keeps all
+   content at a readable max-width and centered.
+   This is the same pattern used by Tailwind,
+   Bootstrap, and every major CSS framework.
+============================================= */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =============================================
+   NAVIGATION
+   WHY: position: sticky keeps it visible while
+   scrolling. backdrop-filter adds a frosted-glass
+   blur — a modern premium touch.
+============================================= */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.nav-logo {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+}
+
+.nav-logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color 0.2s;
+  letter-spacing: 0.03em;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+/* =============================================
+   HERO SECTION
+   WHY: min-height: 100svh fills the viewport.
+   'svh' (small viewport height) is better than
+   'vh' on mobile because it accounts for the
+   browser toolbar. Flexbox centers content.
+============================================= */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding: 80px 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle grid background — gives depth without distracting from content */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 80%);
+  opacity: 0.4;
+}
+
+/* Accent glow behind the hero text */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0,255,135,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+
+/* =============================================
+   ANIMATIONS
+   WHY: Staggered reveals feel polished and
+   professional. Pure CSS — no JS library needed.
+   .animate-in is the base state (hidden).
+   JS adds the class when elements scroll into
+   view, triggering the fadeUp keyframe.
+============================================= */
+.animate-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.25s; }
+.delay-3 { animation-delay: 0.4s; }
+.delay-4 { animation-delay: 0.55s; }
+.delay-5 { animation-delay: 0.7s; }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* =============================================
+   HERO BADGE
+============================================= */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,255,135,0.08);
+  border: 1px solid rgba(0,255,135,0.25);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 28px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Pulsing dot = "available for opportunities" visual cue */
+.hero-badge::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* =============================================
+   HERO TYPOGRAPHY
+   WHY: clamp() = fluid typography that scales
+   between a min and max based on viewport width.
+   No media queries needed for font sizing.
+============================================= */
+.hero h1 {
+  font-family: var(--font-head);
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.hero-tagline {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: var(--muted);
+  max-width: 540px;
+  margin-bottom: 40px;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+/* =============================================
+   BUTTONS
+   WHY: Two variants — filled (primary action)
+   and outlined (secondary action). transform on
+   hover gives a satisfying tactile feel.
+============================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #000;
+}
+
+.btn-primary:hover {
+  background: var(--accent-dim);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,255,135,0.25);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+/* =============================================
+   STATS BAR
+   WHY: Social proof upfront. Numbers are the
+   fastest way to communicate experience level.
+============================================= */
+.stats {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 0;
+  margin: 60px 0;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 32px;
+  text-align: center;
+}
+
+.stat-number {
+  font-family: var(--font-head);
+  font-size: 2.8rem;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+
+/* =============================================
+   SECTIONS — shared layout pattern
+============================================= */
+section { padding: 80px 0; }
+
+.section-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-head);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  color: var(--muted);
+  max-width: 520px;
+  margin-bottom: 48px;
+  font-size: 1.05rem;
+}
+
+/* =============================================
+   ABOUT SECTION
+============================================= */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about-photo { position: relative; }
+
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.photo-placeholder svg { opacity: 0.3; }
+
+/* Decorative accent border on photo */
+.about-photo::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  right: -12px;
+  width: 60%;
+  height: 60%;
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  border-radius: 0 0 16px 0;
+  opacity: 0.4;
+}
+
+.about-text p {
+  color: var(--muted);
+  margin-bottom: 20px;
+  line-height: 1.9;
+}
+
+.about-text p strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* =============================================
+   SKILLS SECTION
+   WHY: CSS Grid with auto-fill lets the cards
+   reflow naturally on any screen size without
+   media queries. Cards never get too wide or
+   too narrow.
+============================================= */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  transition: border-color 0.2s, transform 0.2s;
+  /* Start hidden for scroll animation */
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.skill-card.animate-in {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.skill-card:hover {
+  border-color: rgba(0,255,135,0.35);
+  transform: translateY(-3px);
+}
+
+.skill-card-icon {
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+}
+
+.skill-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.skill-card p {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.tag {
+  background: rgba(0,255,135,0.07);
+  color: var(--accent);
+  border: 1px solid rgba(0,255,135,0.15);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+/* =============================================
+   EXPERIENCE TIMELINE
+============================================= */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+
+/* The vertical line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 48px;
+  /* Start hidden for scroll animation */
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.timeline-item.animate-in {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.timeline-item:last-child { margin-bottom: 0; }
+
+/* The dot on the line */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -34px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+}
+
+.timeline-date {
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.timeline-item h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.timeline-company {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.timeline-item p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* =============================================
+   CONTACT SECTION
+============================================= */
+.contact-section {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.contact-link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateX(4px);
+}
+
+.contact-link-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(0,255,135,0.08);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* =============================================
+   FORM STYLES
+   WHY: IDs on form elements are critical for QA.
+   When you write Playwright/Selenium tests for
+   your practice page, these patterns (label +
+   input with matching id/for) are best practice
+   for accessibility AND reliable test selectors.
+============================================= */
+.form-group { margin-bottom: 20px; }
+
+.form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0,255,135,0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* =============================================
+   FOOTER
+============================================= */
+footer {
+  padding: 32px 0;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+footer a { color: var(--accent); }
+
+/* =============================================
+   RESPONSIVE
+   WHY: We only need one breakpoint because CSS
+   Grid + clamp() handle most of the layout
+   adaptation automatically. We just collapse
+   the multi-column layouts on small screens.
+============================================= */
+@media (max-width: 680px) {
+  .nav-links { display: none; }
+
+  .about-grid,
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+
+  .about-photo { max-width: 280px; margin: 0 auto; }
+
+  .hero { padding-top: 60px; }
+}
