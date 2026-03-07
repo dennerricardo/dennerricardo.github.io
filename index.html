@@ -3,257 +3,251 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Denner Ricardo — Software Quality Automation Engineer</title>
+  <title>Denner Ricardo — Software Test Analyst</title>
 
+  <!--
+    WHY these fonts:
+    Inter  — the standard for clean, readable UI. Used by Linear, Vercel, Notion.
+    JetBrains Mono — gives the QA/terminal flavour. Used for labels, tags, metadata.
+    Together they create a professional but technical identity.
+  -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ============================================
-       NAVIGATION
-  ============================================= -->
-  <nav>
-    <div class="container nav-inner">
-      <span class="nav-logo">Denner<span>Ricardo</span></span>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="practice.html">Practice Lab</a></li>
-      </ul>
-    </div>
-  </nav>
+<div class="layout">
 
-  <main>
+  <!-- ============================================
+       SIDEBAR
+       WHY sticky: nav and contacts are always
+       visible while the user scrolls through content.
+       Same UX pattern as Linear, Notion, and the
+       reference portfolio.
+  ============================================= -->
+  <aside class="sidebar">
+
+    <div>
+      <div class="sidebar-name">Denner <em>Ricardo</em></div>
+      <div class="sidebar-role">SOFTWARE_TEST_ANALYST</div>
+      <div class="sidebar-status">Open to opportunities</div>
+    </div>
+
+    <nav>
+      <ul class="sidebar-nav">
+        <li><a href="#about"><span class="nav-indicator">→</span> About</a></li>
+        <li><a href="#skills"><span class="nav-indicator">→</span> Skills</a></li>
+        <li><a href="#experience"><span class="nav-indicator">→</span> Experience</a></li>
+        <li><a href="#certifications"><span class="nav-indicator">→</span> Certifications</a></li>
+        <li><a href="#contact"><span class="nav-indicator">→</span> Contact</a></li>
+        <li><a href="practice.html"><span class="nav-indicator">→</span> Practice Lab</a></li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-links">
+      <a href="https://www.linkedin.com/in/dennerricardo/" class="sidebar-link" target="_blank" id="link-linkedin">
+        <span class="sidebar-link-icon">in</span>
+        linkedin.com/in/dennerricardo
+      </a>
+      <a href="https://github.com/dennerricardo" class="sidebar-link" target="_blank" id="link-github">
+        <span class="sidebar-link-icon">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+        </span>
+        github.com/dennerricardo
+      </a>
+      <a href="mailto:denner.ricardo@gmail.com" class="sidebar-link" id="link-email">
+        <span class="sidebar-link-icon">@</span>
+        denner.ricardo@gmail.com
+      </a>
+      <a href="tel:+5583998332992" class="sidebar-link" id="link-phone">
+        <span class="sidebar-link-icon">☎</span>
+        +55 (83) 99833-2992
+      </a>
+    </div>
+
+  </aside>
+
+  <!-- ============================================
+       MAIN CONTENT
+  ============================================= -->
+  <div class="main-content">
 
     <!-- ==========================================
-         HERO
+         HERO / ABOUT
     =========================================== -->
-    <section class="hero">
-      <div class="container hero-content">
+    <section class="hero-section" id="about">
+      <div class="hero-cert">ISTQB® CTFL · Certificate ID: 25-CTFL-14596-BR</div>
 
-        <div class="hero-badge animate-in delay-1">
-          ISTQB® CTFL Certified 
-        </div>
+      <h1 class="hero-title">
+        Software<br>Quality<em>Engineer</em>
+      </h1>
 
-        <h1 class="animate-in delay-2">
-          Hi, I'm <em>Denner Ricardo</em><br>Software Quality Engineer
-        </h1>
+      <p class="hero-sub">João Pessoa, Brazil</p>
 
-        <p class="hero-tagline animate-in delay-3">
-          5 years driving quality in healthcare, government, e-commerce and entertainment.
-          I build automation frameworks that catch bugs before users ever see them.
-        </p>
+      <p class="hero-tagline">
+        Specialised in automation frameworks and manual web/mobile testing.
+        I've shipped quality across healthcare, government, e-commerce,
+        and entertainment — building the pipelines that catch bugs
+        before users ever see them.
+      </p>
 
-        <div class="hero-cta animate-in delay-4">
-          <a href="#contact" class="btn btn-primary">Get in touch</a>
-          <a href="#experience" class="btn btn-ghost">See my work</a>
-        </div>
-
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary">Get in touch</a>
+        <a href="#experience" class="btn btn-ghost">See my work ↓</a>
       </div>
     </section>
 
     <!-- ==========================================
          STATS
     =========================================== -->
-    <div class="stats">
-      <div class="container">
-        <div class="stats-grid">
-          <div>
-            <div class="stat-number" id="stat-years">5+</div>
-            <div class="stat-label">Years in QA</div>
-          </div>
-          <div>
-            <div class="stat-number" id="stat-frameworks">+100</div>
-            <div class="stat-label">Test Scenarios Built</div>
-          </div>
-          <div>
-            <div class="stat-number" id="stat-industries">4</div>
-            <div class="stat-label">Industries Covered</div>
-          </div>
-          <!-- <div>
-            <div class="stat-number" id="stat-langs">3</div>
-            <div class="stat-label">Programming Languages</div>
-          </div> -->
-        </div>
+   <div class="stats-row">
+      <div class="stat-cell">
+        <div class="stat-number">5<span>+</span></div>
+        <div class="stat-label">Years in QA performing<br><span class="stat-sub">Manual · Automation</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Industries Covered<br><span class="stat-sub">Ecommerce · Entertainment  Healthcare · Government</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Platforms Tested<br><span class="stat-sub">Web · API · iOS · Android</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Languages Spoken<br><span class="stat-sub">PT · EN · ES</span></div>
       </div>
     </div>
-
-    <!-- ==========================================
-         ABOUT
-    =========================================== -->
-    <section id="about">
-      <div class="container">
-        <div class="about-grid">
-
-          <div class="about-photo animate-in">
-             <!--
-              Replace with your real photo:
-              <img src="photo.jpg" alt="Denner Ricardo" style="border-radius:16px;" />
-            -->
-           
-            <div class="photo-placeholder">
-              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                <circle cx="12" cy="8" r="4"/>
-                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-              </svg>
-              <span>Your photo here</span>
-            </div>
-          </div>
-
-          <div class="about-text animate-in">
-            <p class="section-label">About me</p>
-            <h2 class="section-title">Quality is not an act,<br>it's a habit.</h2>
-
-            <p>
-              I'm a <strong>Software Test Analyst</strong> with 5 years of experience in software
-              quality assurance, specialising in automation and manual web/mobile testing.
-              ISTQB CTFL certified, I've worked across healthcare, government, e-commerce,
-              and entertainment industries.
-            </p>
-
-            <p>
-              I build and maintain automation frameworks using <strong>Selenium, Playwright,
-              Cucumber, TestNG and Robot Framework</strong>, writing tests in <strong>Python,
-              Java, and JavaScript</strong>. I own CI pipelines, validate APIs, and run
-              mobile testing on both iOS and Android.
-            </p>
-
-            <p>
-              Based in <strong>João Pessoa, Brazil</strong>. Fluent in Portuguese, English (B2–C1),
-              and Spanish (B2). I hold a Bachelor's degree in Information Systems and
-              completed an exchange programme at Beira Interior University, Portugal.
-            </p>
-
-            <a href="#contact" class="btn btn-ghost" style="margin-top:8px;">Let's talk →</a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
     <!-- ==========================================
          SKILLS
     =========================================== -->
-    <section id="skills">
-      <div class="container">
-        <p class="section-label">Expertise</p>
-        <h2 class="section-title">What I work with</h2>
-        <p class="section-desc">
-          From mobile exploratory sessions to fully automated CI pipelines —
-          I cover the full quality spectrum.
-        </p>
+    <section class="section" id="skills">
+      <div class="section-label">// SKILLS &amp; TOOLS</div>
+      <h2 class="section-title">What I work with</h2>
+      <p class="section-desc">
+        From mobile exploratory sessions to fully automated CI pipelines —
+        covering the full quality spectrum.
+      </p>
 
-        <div class="skills-grid">
+      <div class="skills-categories">
 
-          <div class="skill-card" id="skill-automation">
-            <div class="skill-card-icon">⚙️</div>
-            <h3>Test Automation</h3>
-            <p>Building and maintaining scalable frameworks with low flakiness and clear CI reporting.</p>
-            <div class="skill-tags">
-              <span class="tag">Selenium</span>
-              <span class="tag">Playwright</span>
-              <span class="tag">TestNG</span>
-              <span class="tag">Robot Framework</span>
-              <span class="tag">Cucumber</span>
-              <span class="tag">Protractor</span>
-            </div>
+        <div class="skill-category" id="skill-automation">
+          <div class="skill-cat-label">01 / TEST AUTOMATION</div>
+          <div class="skill-cat-title">Frameworks & Tools</div>
+          <div class="skill-tags">
+            <span class="tag">Selenium</span>
+            <span class="tag">Playwright</span>
+            <span class="tag">TestNG</span>
+            <span class="tag">Robot Framework</span>
+            <span class="tag">Cucumber</span>
+            <span class="tag">Protractor</span>
+            <span class="tag">Pytest</span>
           </div>
-
-          <div class="skill-card" id="skill-languages">
-            <div class="skill-card-icon">💻</div>
-            <h3>Programming Languages</h3>
-            <p>Writing clean, readable test code to match any team's stack and testing strategy.</p>
-            <div class="skill-tags">
-              <span class="tag">Python</span>
-              <span class="tag">Java</span>
-              <span class="tag">JavaScript</span>
-            </div>
-          </div>
-
-          <div class="skill-card" id="skill-api">
-            <div class="skill-card-icon">🔌</div>
-            <h3>API Testing</h3>
-            <p>Building and validating REST API requests, analysing responses, and documenting issues.</p>
-            <div class="skill-tags">
-              <span class="tag">Postman</span>
-              <span class="tag">Swagger</span>
-              <span class="tag">REST API</span>
-            </div>
-          </div>
-
-          <div class="skill-card" id="skill-cicd">
-            <div class="skill-card-icon">🚀</div>
-            <h3>CI/CD & DevOps</h3>
-            <p>Owning CI pipelines with real-time Slack notifications and fast feedback loops.</p>
-            <div class="skill-tags">
-              <span class="tag">GitHub Actions</span>
-              <span class="tag">GitLab</span>
-              <span class="tag">Azure DevOps</span>
-            </div>
-          </div>
-
-          <div class="skill-card" id="skill-mobile">
-            <div class="skill-card-icon">📱</div>
-            <h3>Mobile & Cross-Browser</h3>
-            <p>Manual mobile testing on iOS and Android, with cross-browser coverage via BrowserStack.</p>
-            <div class="skill-tags">
-              <span class="tag">iOS</span>
-              <span class="tag">Android</span>
-              <span class="tag">BrowserStack</span>
-            </div>
-          </div>
-
-          <div class="skill-card" id="skill-manual">
-            <div class="skill-card-icon">🧪</div>
-            <h3>Manual & Exploratory</h3>
-            <p>Functional, regression, smoke, and exploratory testing with structured Jira-tracked evidence.</p>
-            <div class="skill-tags">
-              <span class="tag">Jira</span>
-              <span class="tag">TestLink</span>
-              <span class="tag">Scrum</span>
-              <span class="tag">Kanban</span>
-            </div>
-          </div>
-
-          <div class="skill-card" id="skill-db">
-            <div class="skill-card-icon">🗄️</div>
-            <h3>Databases</h3>
-            <p>Writing queries and validating data integrity across relational and non-relational databases.</p>
-            <div class="skill-tags">
-              <span class="tag">MySQL</span>
-              <span class="tag">PostgreSQL</span>
-              <span class="tag">Oracle SQL</span>
-              <span class="tag">MongoDB</span>
-            </div>
-          </div>
-
         </div>
+
+        <div class="skill-category" id="skill-languages">
+          <div class="skill-cat-label">02 / PROGRAMMING</div>
+          <div class="skill-cat-title">Languages</div>
+          <div class="skill-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Java</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="skill-category" id="skill-api">
+          <div class="skill-cat-label">03 / API TESTING</div>
+          <div class="skill-cat-title">API & Integration</div>
+          <div class="skill-tags">
+            <span class="tag">Postman</span>
+            <span class="tag">Swagger</span>
+            <span class="tag">REST API</span>
+            <span class="tag">REST Assured</span>
+          </div>
+        </div>
+
+        <div class="skill-category" id="skill-cicd">
+          <div class="skill-cat-label">04 / CI/CD & DEVOPS</div>
+          <div class="skill-cat-title">Pipeline & Infrastructure</div>
+          <div class="skill-tags">
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">GitLab CI</span>
+            <span class="tag">Azure DevOps</span>
+            <span class="tag">Jenkins</span>
+          </div>
+        </div>
+
+        <div class="skill-category" id="skill-mobile">
+          <div class="skill-cat-label">05 / MOBILE & CROSS-BROWSER</div>
+          <div class="skill-cat-title">Device Testing</div>
+          <div class="skill-tags">
+            <span class="tag">iOS</span>
+            <span class="tag">Android</span>
+            <span class="tag">BrowserStack</span>
+          </div>
+        </div>
+
+        <div class="skill-category" id="skill-db">
+          <div class="skill-cat-label">06 / DATABASES</div>
+          <div class="skill-cat-title">Data Validation</div>
+          <div class="skill-tags">
+            <span class="tag">MySQL</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Oracle SQL</span>
+            <span class="tag">MongoDB</span>
+          </div>
+        </div>
+
+        <div class="skill-category" id="skill-manual">
+          <div class="skill-cat-label">07 / MANUAL TESTING</div>
+          <div class="skill-cat-title">Process & Tooling</div>
+          <div class="skill-tags">
+            <span class="tag">Jira</span>
+            <span class="tag">TestLink</span>
+            <span class="tag">Azure DevOps</span>
+            <span class="tag">Scrum</span>
+            <span class="tag">Kanban</span>
+          </div>
+        </div>
+
+        <div class="skill-category" id="skill-langs">
+          <div class="skill-cat-label">08 / LANGUAGES</div>
+          <div class="skill-cat-title">Communication</div>
+          <div class="skill-tags">
+            <span class="tag">Portuguese (native)</span>
+            <span class="tag">English (B2–C1)</span>
+            <span class="tag">Spanish (B2)</span>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- ==========================================
          EXPERIENCE
     =========================================== -->
-    <section id="experience">
-      <div class="container">
-        <p class="section-label">Career</p>
-        <h2 class="section-title">Experience</h2>
-        <p class="section-desc">
-          A track record of raising quality bars across healthcare, government,
-          e-commerce, and entertainment products.
-        </p>
+    <section class="section" id="experience">
+      <div class="section-label">// EXPERIENCE</div>
+      <h2 class="section-title">Career</h2>
+      <p class="section-desc">
+        A track record of raising quality bars across healthcare,
+        government, e-commerce, and entertainment products.
+      </p>
 
-        <div class="timeline">
+      <div class="timeline">
 
-          <div class="timeline-item" id="exp-1">
-            <div class="timeline-date">Jan 2024 — Present</div>
+        <div class="timeline-item" id="exp-1">
+          <div class="tl-meta">
+            <div class="tl-date">Jan 2024<br>Present</div>
+            <div class="tl-company">Meta IT</div>
+            <div class="tl-type">Full-time</div>
+          </div>
+          <div class="tl-body">
             <h3>Software Test Analyst</h3>
-            <div class="timeline-company">Meta IT · Full-time</div>
             <p>
               Developed and maintained two automated testing projects in Java using Selenium,
               Cucumber, and TestNG. Owned the CI pipeline on a private machine runner with
@@ -262,7 +256,7 @@
               on iOS and Android and used AI-assisted generation to refine test scenarios
               and BrowserStack test cases.
             </p>
-            <div class="skill-tags" style="margin-top:12px;">
+            <div class="skill-tags">
               <span class="tag">Java</span>
               <span class="tag">Python</span>
               <span class="tag">Selenium</span>
@@ -273,18 +267,23 @@
               <span class="tag">BrowserStack</span>
             </div>
           </div>
+        </div>
 
-          <div class="timeline-item" id="exp-2">
-            <div class="timeline-date">2020 — 2022</div>
+        <div class="timeline-item" id="exp-2">
+          <div class="tl-meta">
+            <div class="tl-date">2020<br>2022</div>
+            <div class="tl-company">WATI Technology</div>
+            <div class="tl-type">1 yr 5 mo</div>
+          </div>
+          <div class="tl-body">
             <h3>Software Test Analyst</h3>
-            <div class="timeline-company">WATI Technology & Innovation · 1yr 5mo</div>
             <p>
               Developed automated tests for a large healthcare management platform supporting
               hospital operations and high-volume workflows. Built BDD test cases using
               Robot Framework and Python, maintained automation repositories, executed
               regression suites, and reported evidence in Jira.
             </p>
-            <div class="skill-tags" style="margin-top:12px;">
+            <div class="skill-tags">
               <span class="tag">Python</span>
               <span class="tag">Robot Framework</span>
               <span class="tag">Selenium</span>
@@ -292,34 +291,44 @@
               <span class="tag">Scrum</span>
             </div>
           </div>
+        </div>
 
-          <div class="timeline-item" id="exp-3">
-            <div class="timeline-date">2021</div>
+        <div class="timeline-item" id="exp-3">
+          <div class="tl-meta">
+            <div class="tl-date">2021</div>
+            <div class="tl-company">ACT Digital</div>
+            <div class="tl-type">Contract · 6 mo</div>
+          </div>
+          <div class="tl-body">
             <h3>Software Test Analyst</h3>
-            <div class="timeline-company">ACT Digital · Contract (6 months)</div>
             <p>
               Web and API testing for an automotive e-commerce platform. Built and validated
               API requests, analysed responses, and documented issues with structured evidence.
             </p>
-            <div class="skill-tags" style="margin-top:12px;">
+            <div class="skill-tags">
               <span class="tag">Postman</span>
               <span class="tag">Swagger</span>
               <span class="tag">MongoDB</span>
               <span class="tag">PostgreSQL</span>
             </div>
           </div>
+        </div>
 
-          <div class="timeline-item" id="exp-4">
-            <div class="timeline-date">2018 — 2020</div>
+        <div class="timeline-item" id="exp-4">
+          <div class="tl-meta">
+            <div class="tl-date">2018<br>2020</div>
+            <div class="tl-company">CTIS Technology</div>
+            <div class="tl-type">2 years</div>
+          </div>
+          <div class="tl-body">
             <h3>Software Test Analyst</h3>
-            <div class="timeline-company">CTIS Technology · 2 years</div>
             <p>
-              Financial and governmental systems including business registration, invoice issuing,
-              and tax payments. Designed and executed manual and automated test cases using
-              Selenium, Protractor, and Cucumber. Supported test planning, bug triage,
-              and activity tracking through Jira and GitLab.
+              Financial and governmental systems including business registration, invoice
+              issuing, and tax payments. Designed and executed manual and automated test
+              cases using Selenium, Protractor, and Cucumber. Supported test planning,
+              bug triage, and tracking through Jira and GitLab.
             </p>
-            <div class="skill-tags" style="margin-top:12px;">
+            <div class="skill-tags">
               <span class="tag">JavaScript</span>
               <span class="tag">Java</span>
               <span class="tag">Selenium</span>
@@ -329,68 +338,130 @@
               <span class="tag">PostgreSQL</span>
             </div>
           </div>
+        </div>
 
+        <div class="timeline-item" id="exp-5">
+          <div class="tl-meta">
+            <div class="tl-date">2018</div>
+            <div class="tl-company">Stefanini</div>
+            <div class="tl-type">Internship · 6 mo</div>
+          </div>
+          <div class="tl-body">
+            <h3>Front-End Developer Intern</h3>
+            <p>
+              Supported development of a web portal for cross-referencing data from multiple
+              sources, built with JavaScript and AngularJS backed by PostgreSQL.
+            </p>
+            <div class="skill-tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">AngularJS</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         CERTIFICATIONS
+    =========================================== -->
+    <section class="section" id="certifications">
+      <div class="section-label">// CERTIFICATIONS &amp; EDUCATION</div>
+      <h2 class="section-title">Credentials</h2>
+
+      <div class="cert-item" id="cert-istqb">
+        <span class="cert-badge">CERTIFIED</span>
+        <div>
+          <div class="cert-name">ISTQB® Certified Tester – Foundation Level (CTFL)</div>
+          <div class="cert-issuer">ISTQB · ID: 25-CTFL-14596-BR</div>
         </div>
       </div>
+
+      <div class="cert-item" id="cert-degree">
+        <span class="cert-badge">DEGREE</span>
+        <div>
+          <div class="cert-name">Bachelor's in Information Systems</div>
+          <div class="cert-issuer">UniFacisa — Campina Grande, Paraíba, Brazil · 2014–2019</div>
+        </div>
+      </div>
+
+      <div class="cert-item" id="cert-exchange">
+        <span class="cert-badge">EXCHANGE</span>
+        <div>
+          <div class="cert-name">Information Engineering Exchange Programme</div>
+          <div class="cert-issuer">Beira Interior University (UBI) — Covilhã, Portugal · 2017</div>
+        </div>
+      </div>
+
     </section>
 
     <!-- ==========================================
          CONTACT
     =========================================== -->
-    <section id="contact" class="contact-section">
-      <div class="container">
-        <div class="contact-grid">
+    <section class="section" id="contact">
+      <div class="section-label">// CONTACT</div>
+      <h2 class="section-title">Let's work together</h2>
+      <p class="section-desc">
+        Open to QA roles, freelance projects, and automation consulting.
+        Drop me a message below or reach out directly.
+      </p>
 
-          <div>
-            <p class="section-label">Get in touch</p>
-            <h2 class="section-title">Let's work<br>together</h2>
-			<div>
-				<p class="section-desc">
-				  Open to QA roles, freelance projects, and
-				  automation consulting. Drop me a message.
-				</p>
-			</div>
-            <div class="contact-links">
-              <a href="https://www.linkedin.com/in/dennerricardo/" class="contact-link" id="link-linkedin" target="_blank">
-                <div class="contact-link-icon">in</div>
-                linkedin.com/in/dennerricardo
-              </a>
-              <a href="https://github.com/dennerricardo" class="contact-link" id="link-github" target="_blank">
-                <div class="contact-link-icon">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                  </svg>
-                </div>
-                github.com/dennerricardo
-              </a>
-              <a href="mailto:denner.ricardo@gmail.com" class="contact-link" id="link-email">
-                <div class="contact-link-icon">@</div>
-                denner.ricardo@gmail.com
-              </a>
-              <a href="tel:+5583998332992" class="contact-link" id="link-phone">
-                <div class="contact-link-icon">📞</div>
-                +55 (83) 99833-2992
-              </a>
-            </div>
-          </div>
+      <div class="contact-layout">
+
+        <div class="contact-info-links">
+          <a href="https://www.linkedin.com/in/dennerricardo/" class="contact-link" id="contact-linkedin" target="_blank">
+            <span class="contact-link-icon">in</span>
+            linkedin.com/in/dennerricardo
+          </a>
+          <a href="https://github.com/dennerricardo" class="contact-link" id="contact-github" target="_blank">
+            <span class="contact-link-icon">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+            </span>
+            github.com/dennerricardo
+          </a>
+          <a href="mailto:denner.ricardo@gmail.com" class="contact-link" id="contact-email">
+            <span class="contact-link-icon">@</span>
+            denner.ricardo@gmail.com
+          </a>
+          <a href="tel:+5583998332992" class="contact-link" id="contact-phone">
+            <span class="contact-link-icon">☎</span>
+            +55 (83) 99833-2992
+          </a>
         </div>
+
+        <!-- Sign up at formspree.io and replace YOUR_FORM_ID -->
+        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-group">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" name="name" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email</label>
+            <input type="email" id="contact-email" name="email" placeholder="jane@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" placeholder="Tell me about your project or role..." required></textarea>
+          </div>
+          <button type="submit" id="contact-submit" class="btn btn-primary" style="width:100%; justify-content:center;">
+            Send Message →
+          </button>
+        </form>
+
       </div>
     </section>
 
-  </main>
+    <footer>
+      <span>© 2026 Denner Ricardo · João Pessoa, Brazil</span>
+      <a href="practice.html">Automation Practice Lab →</a>
+    </footer>
 
-  <!-- ============================================
-       FOOTER
-  ============================================= -->
-  <footer>
-    <div class="container">
-      <p>© 2026 Denner Ricardo ·  
-		<a>Software Quality Engineer</a>
-      </p>
-    </div>
-  </footer>
+  </div>
+</div>
 
-  <script src="main.js" defer></script>
-
+<script src="main.js" defer></script>
 </body>
 </html>

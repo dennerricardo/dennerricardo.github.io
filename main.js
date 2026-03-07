@@ -45,7 +45,7 @@ const observer = new IntersectionObserver((entries) => {
 // Observe all cards and timeline items on the page.
 // querySelectorAll returns a NodeList, and forEach works
 // on it directly — no need to spread into an array.
-document.querySelectorAll('.skill-card, .timeline-item').forEach(el => {
+document.querySelectorAll('.skill-category, .timeline-item, .cert-item').forEach(el => {
   observer.observe(el);
 });
 
@@ -60,24 +60,19 @@ document.querySelectorAll('.skill-card, .timeline-item').forEach(el => {
    pattern, different purpose.
 ============================================= */
 const sections   = document.querySelectorAll('section[id]');
-const navLinks   = document.querySelectorAll('.nav-links a');
+const navLinks   = document.querySelectorAll('.sidebar-nav a');
 
 const navObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      // Remove active state from all links
-      navLinks.forEach(link => link.style.color = '');
-      // Add active state to the matching link
+      navLinks.forEach(link => link.classList.remove('active'));
       const activeLink = document.querySelector(
-        `.nav-links a[href="#${entry.target.id}"]`
+        `.sidebar-nav a[href="#${entry.target.id}"]`
       );
-      if (activeLink) activeLink.style.color = 'var(--accent)';
+      if (activeLink) activeLink.classList.add('active');
     }
   });
 }, {
-  // rootMargin shifts the trigger point to the middle of
-  // the screen, so the nav updates when a section is
-  // roughly centered — feels more natural.
   rootMargin: '-40% 0px -50% 0px'
 });
 
